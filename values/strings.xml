@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="action_settings">Settings</string>
+	<string name="update"></string>
+	<string name="temp"></string>
+	<string name="type"></string>
+	<string name="location"></string>
+	<string name="zero"></string>
+	<string name="one"></string>
+	<string name="two"></string>
+	<string name="three"></string>
+	<string name="humid"></string>
 </resources>
