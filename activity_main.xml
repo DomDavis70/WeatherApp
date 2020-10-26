@@ -8,38 +8,7 @@
     android:layout_height="match_parent">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:textColor="@android:color/white"
-            android:hint="Enter City"
-            android:textColorHint="@android:color/white"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:id="@+id/cityNameText"
-            android:inputType="text" />
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/black"
-            android:textAllCaps="false"
-            android:text="Check Weather"
-            android:textColor="@android:color/white"
-            android:id="@+id/getWeatherButton"
-            android:layout_below="@+id/cityNameText"
-            />
-
-    </RelativeLayout>
+    
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,11 +27,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
             android:gravity="center"
-            android:text=" "
+            android:text="@string/temp"
             android:textColor="@android:color/white"
             android:textSize="40dp"
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
+
             android:layout_toRightOf="@+id/weatherImage"
             android:id="@+id/weatherDescriptionText"
             />
@@ -71,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
             android:gravity="center"
-            android:text=" "
+            android:text="@string/type"
             android:textColor="@android:color/white"
             android:textSize="40dp"
             android:textStyle="bold"
@@ -84,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
             android:gravity="center"
-            android:text=" "
+            android:text="@string/location"
             android:textColor="@android:color/white"
             android:textSize="40dp"
             android:textStyle="bold"
@@ -97,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" 
             android:gravity="center"
-            android:text=" "
+            android:text="@string/humid"
             android:textColor="@android:color/white"
             android:textSize="40dp"
             android:textStyle="bold"
@@ -108,6 +78,128 @@
 
 
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="-0.7"
+        android:layout_marginBottom="0.0dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="2"
+            android:columnCount="2">
+
+            <TextView
+                android:text="@string/zero"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/cell0"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:text="@string/one"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:id="@+id/cell1"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                />
+            <Space
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_width="100dp"
+                android:layout_height="50dp" />
+            <TextView
+                android:text="@string/two"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/cell2"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:text="@string/three"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/cell3"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                />
+
+        </GridLayout>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColor="@android:color/white"
+            android:hint="Enter City"
+            android:textColorHint="@android:color/white"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:layout_marginTop="50dp"
+            android:id="@+id/cityNameText"
+            android:inputType="text" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:text="Check Weather"
+            android:textColor="@android:color/white"
+            android:id="@+id/getWeatherButton"
+            android:layout_below="@+id/cityNameText"
+            />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="@string/update"
+            android:layout_marginLeft="130dp"
+            android:layout_below="@+id/getWeatherButton"
+            android:layout_marginTop="10dp"
+            />
+
+    </RelativeLayout>
+       
 
 
 
