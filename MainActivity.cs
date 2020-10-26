@@ -23,8 +23,18 @@ namespace WeatherApp
         TextView placeTextView;
         TextView weatherTypeView;
         TextView humidityTextView;
+        TextView tempHighTextView;
+        TextView tempLowTextView;
+        TextView windSpeedTextView;
+        TextView airPressureTextView;
+        TextView sunsetTextView;
+        TextView sunriseTextView;
+        TextView updateTimeTextView;
         EditText cityEditText;
         ImageView weatherImageView;
+        
+
+
 
         progressDialogueFragment progressDialogue;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -42,6 +52,14 @@ namespace WeatherApp
             placeTextView = (TextView)FindViewById(Resource.Id.placeText);
             weatherTypeView = (TextView)FindViewById(Resource.Id.weatherType);
             humidityTextView = (TextView)FindViewById(Resource.Id.humidityText);
+            tempHighTextView = (TextView)FindViewById(Resource.Id.cell0);
+            tempLowTextView = (TextView)FindViewById(Resource.Id.cell1);
+            windSpeedTextView = (TextView)FindViewById(Resource.Id.cell2);
+            airPressureTextView = (TextView)FindViewById(Resource.Id.cell3);
+            updateTimeTextView = (TextView)FindViewById(Resource.Id.textView1);
+            
+
+
 
             getWeatherButton.Click += GetWeatherButton_Click1;
         }
@@ -80,26 +98,37 @@ namespace WeatherApp
 
 
             var resultObject = JObject.Parse(result);
+            string airPressure = resultObject["main"]["pressure"].ToString();
+            string windSpeed = resultObject["wind"]["speed"].ToString();
             string weatherDescription = resultObject["weather"][0]["description"].ToString();
             string icon = resultObject["weather"][0]["icon"].ToString();
             double temperature = Convert.ToDouble(resultObject["main"]["temp"]);
             string location = resultObject["name"].ToString();
             string country = resultObject["sys"]["country"].ToString();
             string humidity = resultObject["main"]["humidity"].ToString();
-
+            double high = Convert.ToDouble(resultObject["main"]["temp_max"]);
+            double low = Convert.ToDouble(resultObject["main"]["temp_min"]);
 
             // to make the names all upercase we can:
             weatherDescription = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(weatherDescription);
-            
-            //Convert.ToDouble(temperature);
-            temperature = temperature - 273;
-            string temp = temperature.ToString();
+
+            //Convert to celsius from kelvin
+            string temp = doub(temperature);
+            string hi = doub(high);
+            string lo = doub(low);
 
 
             weatherTypeView.Text = weatherDescription;
             tempTextView.Text = temp;
             placeTextView.Text = (location + ", " + country);
             humidityTextView.Text = humidity + "% Humidity";
+            tempHighTextView.Text = "High: " + hi;
+            tempLowTextView.Text = "Low: " + lo;
+            airPressureTextView.Text = "Air Pressure: " + airPressure;
+            windSpeedTextView.Text = "Wind: " + windSpeed + " mph";
+
+            updateTimeTextView.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm:ss");
+
 
 
             //we'll be using a webrequest to download the icons
@@ -121,7 +150,13 @@ namespace WeatherApp
             CloseProgressDialogue();
         }
 
-
+        string doub(double num)
+        {
+            num -= 273;
+            num = (num*(9/5) + 32);
+            string temp = num.ToString();
+            return temp;
+        }
 
 
 
