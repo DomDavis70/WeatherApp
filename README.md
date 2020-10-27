@@ -1,4 +1,5 @@
 # WeatherApp
 
 Xamarin Android application (not deployed yet) that displays real-time weather worldwide
-https://github.com/DomDavis70/WeatherApp/blob/main/pictures/screenshot1.PNG?raw=true
+![WeatherApp screenshot](C:\Users\DomDomDom\Pictures\screnshot1.jpg)
+Format: ![Alt Text](url)
