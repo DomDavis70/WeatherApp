@@ -128,11 +128,11 @@ namespace WeatherApp
 
             //formatting
             weatherTypeView.Text = weatherDescription;
-            tempTextView.Text = temp;
+            tempTextView.Text = temp + " °F";
             placeTextView.Text = (location + ", " + country);
             humidityTextView.Text = humidity + "% Humidity";
-            tempHighTextView.Text = "High: " + hi;
-            tempLowTextView.Text = "Low: " + lo;
+            tempHighTextView.Text = "High: " + hi + " °F";
+            tempLowTextView.Text = "Low: " + lo + " °F";
             airPressureTextView.Text = "Pressure: " + airPressure;
             windSpeedTextView.Text = "Wind: " + windSpeed + " mph";
             updateTimeTextView.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm:ss");
